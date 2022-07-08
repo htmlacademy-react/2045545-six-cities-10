@@ -1,4 +1,4 @@
-import NearPlaceCard from '../../components/near-place-card/near-place-card';
+import PlaceCard from '../../components/place-card/place-card';
 
 function OfferScreen(): JSX.Element {
   return (
@@ -232,9 +232,9 @@ function OfferScreen(): JSX.Element {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              <NearPlaceCard/>
-              <NearPlaceCard/>
-              <NearPlaceCard/>
+              <PlaceCard/>
+              <PlaceCard/>
+              <PlaceCard/>
             </div>
           </section>
         </div>

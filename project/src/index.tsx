@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 
 
-const Setting = {
+const Settings = {
   PLACE_CARDS_COUNT: 5,
 };
 
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      placeCardsCount={Setting.PLACE_CARDS_COUNT}
+      placeCardsCount={Settings.PLACE_CARDS_COUNT}
     />
   </React.StrictMode>,
 );
