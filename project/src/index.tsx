@@ -15,6 +15,7 @@ root.render(
   <React.StrictMode>
     <App
       placeCardsCount={Settings.PLACE_CARDS_COUNT}
+      isLoginPage
     />
   </React.StrictMode>,
 );
