@@ -6,7 +6,7 @@ function NotFoundScreen(): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
-      <Header isLoginPage={false}/>
+      <Header />
       <section className="not-found__no-page">
         <div className="not found__status-wrapper tabs__content">
           <img className ="not-found__picture" src='img/not-found.png' alt="error 404"/>

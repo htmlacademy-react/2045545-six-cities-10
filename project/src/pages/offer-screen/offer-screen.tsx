@@ -6,7 +6,7 @@ function OfferScreen(): JSX.Element {
 
   return (
     <div className="page">
-      <Header isLoginPage={false}/>
+      <Header />
 
       <main className="page__main page__main--property">
         <section className="property">
@@ -208,9 +208,9 @@ function OfferScreen(): JSX.Element {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
+              {/* <PlaceCard/>
               <PlaceCard/>
-              <PlaceCard/>
-              <PlaceCard/>
+              <PlaceCard/> */}
             </div>
           </section>
         </div>

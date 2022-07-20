@@ -4,7 +4,7 @@ import Header from '../../components/header/header';
 function FavoritesScreen(): JSX.Element {
   return (
     <div className="page">
-      <Header isLoginPage = {false}/>
+      <Header />
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
@@ -20,9 +20,9 @@ function FavoritesScreen(): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <PlaceCard/>
+                  {/* <PlaceCard/>
 
-                  <PlaceCard/>
+                  <PlaceCard/> */}
                 </div>
               </li>
 
@@ -35,7 +35,7 @@ function FavoritesScreen(): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <PlaceCard/>
+                  {/* <PlaceCard/> */}
                 </div>
               </li>
             </ul>

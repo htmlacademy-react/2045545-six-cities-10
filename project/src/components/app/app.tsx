@@ -6,25 +6,28 @@ import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import OfferScreen from '../../pages/offer-screen/offer-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-rote';
+import {Offers} from '../../types/offer';
+import {Reviews} from '../../types/reviews';
 
 
 type AppScreenProps = {
   placeCardsCount: number;
-  isLoginPage: boolean;
+  offers: Offers;
+  reviews: Reviews;
 }
 
-function App({placeCardsCount, isLoginPage}: AppScreenProps): JSX.Element {
+function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element = {<MainScreen placeCardsCount={placeCardsCount}/>}
+          element = {<MainScreen placeCardsCount={placeCardsCount} offers={offers}/>}
         >
         </Route>
         <Route
           path ={AppRoute.Login}
-          element = {<LoginScreen isLoginPage/>}
+          element = {<LoginScreen />}
         />
         <Route
           path ={AppRoute.Favorites}
