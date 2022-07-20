@@ -1,15 +1,13 @@
 import Header from '../../components/header/header';
-// import PlaceCard from '../../components/place-card/place-card';
 import PlaceCardsList from '../../components/place-cards-list/place-cards-list';
-// import { offers } from '../../mocks/offers';
 import {Offers} from '../../types/offer'; //
 
 type MainScreenProps = {
-  placeCardsCount: number;
+  // placeCardsCount: number;
   offers: Offers;
 }
 
-function MainScreen({placeCardsCount, offers}: MainScreenProps): JSX.Element {
+function MainScreen({offers}: MainScreenProps): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
@@ -73,9 +71,6 @@ function MainScreen({placeCardsCount, offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              {/* <div className="cities__places-list places__list tabs__content">
-                {Array.from({length: placeCardsCount}, (_v, k) => <PlaceCard key={k}/> )}
-              </div> */}
               <PlaceCardsList offers = {offers}/>
             </section>
             <div className="cities__right-section">

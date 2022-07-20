@@ -22,7 +22,7 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Main}
-          element = {<MainScreen placeCardsCount={placeCardsCount} offers={offers}/>}
+          element = {<MainScreen offers={offers}/>}
         >
         </Route>
         <Route
@@ -31,7 +31,7 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
         />
         <Route
           path ={AppRoute.Favorites}
-          element = {<FavoritesScreen/>}
+          element = {<FavoritesScreen offers = {offers}/>}
         />
         <Route
           path ={AppRoute.Room}

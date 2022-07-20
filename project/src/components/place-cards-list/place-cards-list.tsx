@@ -10,8 +10,6 @@ type PlaceCardsListProps = {
 function PlaceCardsList({offers}: PlaceCardsListProps): JSX.Element {
 
   const [activeCardId, setActiveCardId] = useState< number | null>(null);
-  console.log(activeCardId);
-
 
   return (
     <div className="cities__places-list places__list tabs__content" >

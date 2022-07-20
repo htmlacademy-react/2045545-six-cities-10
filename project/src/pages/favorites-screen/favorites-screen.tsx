@@ -1,7 +1,16 @@
 import PlaceCard from '../../components/place-card/place-card';
 import Header from '../../components/header/header';
+import { Offers } from '../../types/offer';
+import {useState} from 'react';
 
-function FavoritesScreen(): JSX.Element {
+type FavoritesScreenProps ={
+  offers: Offers,
+}
+
+function FavoritesScreen({offers}:FavoritesScreenProps): JSX.Element {
+
+  const [activeCardId, setActiveCardId] = useState< number | null>(null);
+
   return (
     <div className="page">
       <Header />
@@ -20,9 +29,7 @@ function FavoritesScreen(): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  {/* <PlaceCard/>
-
-                  <PlaceCard/> */}
+                  {offers.map((offer) => (<PlaceCard offer = {offer} key= {`${offer.id}`} isActive ={offer.id === activeCardId} onHover = {()=>setActiveCardId(offer.id)} />))}
                 </div>
               </li>
 
