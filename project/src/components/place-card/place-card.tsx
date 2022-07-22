@@ -1,5 +1,5 @@
 import {Offer} from '../../types/offer';
-import { Link } from 'react-router-dom';
+import {NavLink , useNavigate} from 'react-router-dom';
 
 
 const MULTIPLIER_RATING_TO_PERCENTAGE = 20;
@@ -8,12 +8,13 @@ type PlaceCardProps = {
   offer: Offer;
   isActive: boolean,
   onHover: ()=>void,
+  isFlex: boolean,
 };
 
 function PlaceCard(props: PlaceCardProps): JSX.Element {
 
 
-  const {offer, isActive, onHover} = props;
+  const {offer, isActive, onHover, isFlex} = props;
   const {
     id,
     previewImage,
@@ -37,14 +38,14 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
 
 
   return (
-    <article className= "cities__card place-card" onMouseOver = {onHover}>
+    <article className= "cities__card place-card" onMouseOver = {onHover} style = {{display : `${isFlex ? 'flex' : 'block'}`, width: `${isFlex ? '421px' : '260px'}` }} >
       {isPremium ?
         <div className="place-card__mark">
           <span>Premium</span>
         </div> : null }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="cities__image-wrapper place-card__image-wrapper " style = {{minWidth: `${isFlex ? '150px' : ''}`, marginRight: `${isFlex ? '16px' : ''}` }} >
         <a href="/#">
-          <img className={`place-card__image ${ isActive ? 'place-card__image--active' : null}` } src={previewImage} width="260" height="200" alt={description} />
+          <img className={`place-card__image ${ isActive ? 'place-card__image--active' : null}` } src={previewImage} width={isFlex ? '150px' : '260px'} height="200" alt={description} />
         </a>
       </div>
       <div className="place-card__info">
@@ -67,7 +68,7 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`offers/${id}`} id={`${id}`}>{title}</Link>
+          <NavLink to={`/offer/${id}`} id={`${id}`}>{title}</NavLink>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

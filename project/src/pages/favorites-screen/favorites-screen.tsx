@@ -1,7 +1,6 @@
-import PlaceCard from '../../components/place-card/place-card';
-import Header from '../../components/header/header';
 import { Offers } from '../../types/offer';
-import {useState} from 'react';
+import Header from '../../components/header/header';
+import Favorites from '../../components/favorites/favorites';
 
 type FavoritesScreenProps ={
   offers: Offers,
@@ -9,7 +8,6 @@ type FavoritesScreenProps ={
 
 function FavoritesScreen({offers}:FavoritesScreenProps): JSX.Element {
 
-  const [activeCardId, setActiveCardId] = useState< number | null>(null);
 
   return (
     <div className="page">
@@ -17,36 +15,7 @@ function FavoritesScreen({offers}:FavoritesScreenProps): JSX.Element {
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
-          <section className="favorites">
-            <h1 className="favorites__title">Saved listing</h1>
-            <ul className="favorites__list">
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="/#">
-                      <span>Amsterdam</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-                  {offers.map((offer) => (<PlaceCard offer = {offer} key= {`${offer.id}`} isActive ={offer.id === activeCardId} onHover = {()=>setActiveCardId(offer.id)} />))}
-                </div>
-              </li>
-
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="/#">
-                      <span>Cologne</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-                  {/* <PlaceCard/> */}
-                </div>
-              </li>
-            </ul>
-          </section>
+          <Favorites offers ={offers} />
         </div>
       </main>
       <footer className="footer container">
