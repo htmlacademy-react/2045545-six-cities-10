@@ -14,9 +14,12 @@ type AppScreenProps = {
   placeCardsCount: number;
   offers: Offers;
   reviews: Reviews;
+
 }
 
+
 function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -34,15 +37,20 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
           element = {<FavoritesScreen offers = {offers}/>}
         />
         <Route
-          path = {AppRoute.Room}
-          element = {
-            <PrivateRoute
-              authorizationStatus={AuthorizationStatus.Auth}
-            >
-              <OfferScreen />
-            </PrivateRoute>
-          }
-        />
+          path = {AppRoute.Rooms}
+        >
+          <Route
+            path=':id'
+            element = {
+              <PrivateRoute
+                authorizationStatus={AuthorizationStatus.Auth}
+              >
+                <OfferScreen />
+              </PrivateRoute>
+            }
+          />
+
+        </Route>
         <Route
           path = '*'
           element = {<NotFoundScreen/>}

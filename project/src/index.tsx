@@ -5,6 +5,7 @@ import { offers } from './mocks/offers';
 import { reviews } from './mocks/reviews';
 
 
+
 const Settings = {
   PLACE_CARDS_COUNT: 5,
 };
@@ -19,6 +20,7 @@ root.render(
       placeCardsCount={Settings.PLACE_CARDS_COUNT}
       offers ={offers}
       reviews = {reviews}
+
     />
   </React.StrictMode>,
 );
