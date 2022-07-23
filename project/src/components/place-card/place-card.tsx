@@ -1,8 +1,7 @@
 import {Offer} from '../../types/offer';
 import {NavLink} from 'react-router-dom';
+import {ratingPercentage} from '../../utils/utils';
 
-
-const MULTIPLIER_RATING_TO_PERCENTAGE = 20;
 
 type PlaceCardProps = {
   offer: Offer;
@@ -27,12 +26,6 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
     description,
   } = offer;
 
-  const ratingPercentage = (ratingInStars: number | undefined) : number =>{
-    if (ratingInStars === undefined) {
-      return 0;
-    }
-    return ratingInStars * MULTIPLIER_RATING_TO_PERCENTAGE;
-  };
 
   const starWidth: number = ratingPercentage(rating);
 

@@ -1,13 +1,36 @@
 import Header from '../../components/header/header';
 import ReviewForm from '../../components/review-form/review-form';
 import {useParams} from 'react-router-dom';
+import {Offers} from '../../types/offer';
+import {ratingPercentage, firstLetterToUpperCase} from '../../utils/utils';
+import NotFoundScreen from '../not-found-screen/not-found-screen';
+import { Reviews } from '../../types/reviews';
+import Review from '../../components/review/review';
+
+type OfferScreenProps ={
+  offers: Offers,
+  reviews: Reviews,
+}
 
 
-function OfferScreen(): JSX.Element {
+function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
+
 
   const {id} = useParams();
 
-  console.log(id);
+  const chosenOffer = offers.find((offer)=> offer.id.toString() === id);
+
+  if (chosenOffer === undefined) {
+    return <NotFoundScreen />;
+  }
+
+
+  console.log(reviews);
+
+  const {isPremium, images, title, rating, type, maxAdults, bedrooms, price, goods, host, description} = chosenOffer ;
+  const starWidth = ratingPercentage(rating);
+  const firstLetterCapitalizedType = firstLetterToUpperCase(type);
+
 
   return (
     <div className="page">
@@ -39,12 +62,13 @@ function OfferScreen(): JSX.Element {
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              <div className="property__mark">
-                <span>Premium</span>
-              </div>
+              {isPremium ?
+                <div className="property__mark">
+                  <span>Premium</span>
+                </div> : null }
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                  Beautiful &amp; luxurious studio at great location
+                  {title}
                 </h1>
                 <button className="property__bookmark-button button" type="button">
                   <svg className="property__bookmark-icon" width="31" height="33">
@@ -55,24 +79,24 @@ function OfferScreen(): JSX.Element {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: 80}}></span>
+                  <span style={{width: `${starWidth}% `}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="property__rating-value rating__value">4.8</span>
+                <span className="property__rating-value rating__value">{rating}</span>
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
-                  Apartment
+                  {firstLetterCapitalizedType}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  3 Bedrooms
+                  {bedrooms} Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
-                  Max 4 adults
+                  Max {maxAdults} Adults
                 </li>
               </ul>
               <div className="property__price">
-                <b className="property__price-value">&euro;120</b>
+                <b className="property__price-value">&euro;{price}</b>
                 <span className="property__price-text">&nbsp;night</span>
               </div>
               <div className="property__inside">
@@ -114,49 +138,25 @@ function OfferScreen(): JSX.Element {
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
                   <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                    <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar"/>
+                    <img className="property__avatar user__avatar" src={host?.avatarUrl} width="74" height="74" alt="Host avatar"/>
                   </div>
                   <span className="property__user-name">
-                    Angelina
+                    {host?.name}
                   </span>
                   <span className="property__user-status">
-                    Pro
+                    {host?.isPro}
                   </span>
                 </div>
                 <div className="property__description">
                   <p className="property__text">
-                    A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                  </p>
-                  <p className="property__text">
-                    An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+                    {description}
                   </p>
                 </div>
               </div>
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
                 <ul className="reviews__list">
-                  <li className="reviews__item">
-                    <div className="reviews__user user">
-                      <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                        <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54" alt="Reviews avatar"/>
-                      </div>
-                      <span className="reviews__user-name">
-                        Max
-                      </span>
-                    </div>
-                    <div className="reviews__info">
-                      <div className="reviews__rating rating">
-                        <div className="reviews__stars rating__stars">
-                          <span style={{width: 80}}></span>
-                          <span className="visually-hidden">Rating</span>
-                        </div>
-                      </div>
-                      <p className="reviews__text">
-                        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                      </p>
-                      <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
-                    </div>
-                  </li>
+                  <Review review ={reviews[0]}/>
                 </ul>
                 <ReviewForm />
               </section>

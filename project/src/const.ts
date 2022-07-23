@@ -2,7 +2,7 @@ export enum AppRoute {
   Main ='/',
   Login = '/login',
   Favorites = '/favorites',
-  Rooms ='/offer',
+  Room ='/offer/:id',
 }
 
 
@@ -11,3 +11,6 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+
+export const MULTIPLIER_RATING_TO_PERCENTAGE = 20;

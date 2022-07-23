@@ -5,7 +5,7 @@ type User = {
   name: string,
 }
 
-type Review = {
+export type Review = {
   id: number,
   comment: string,
   date: string,

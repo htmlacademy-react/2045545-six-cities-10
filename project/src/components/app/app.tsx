@@ -37,20 +37,17 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
           element = {<FavoritesScreen offers = {offers}/>}
         />
         <Route
-          path = {AppRoute.Rooms}
-        >
-          <Route
-            path=':id'
-            element = {
-              <PrivateRoute
-                authorizationStatus={AuthorizationStatus.Auth}
-              >
-                <OfferScreen />
-              </PrivateRoute>
-            }
-          />
+          path = {AppRoute.Room}
+          element = {
+            <PrivateRoute
+              authorizationStatus={AuthorizationStatus.Auth}
+            >
+              <OfferScreen offers ={offers} reviews= {reviews}/>
+            </PrivateRoute>
+          }
+        />
 
-        </Route>
+
         <Route
           path = '*'
           element = {<NotFoundScreen/>}
