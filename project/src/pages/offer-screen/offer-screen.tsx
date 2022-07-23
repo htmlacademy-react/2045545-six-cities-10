@@ -6,6 +6,8 @@ import {ratingPercentage, firstLetterToUpperCase} from '../../utils/utils';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import { Reviews } from '../../types/reviews';
 import FeedbacksList from '../../components/feedbacks-list/feedbacks-list';
+import OfferImages from '../../components/offer-images/offer-images';
+import OfferGoods from '../../components/offer-goods/offer-goods';
 
 type OfferScreenProps ={
   offers: Offers,
@@ -35,28 +37,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
       <Header />
       <main className="page__main page__main--property">
         <section className="property">
-          <div className="property__gallery-container container">
-            <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/room.jpg" alt="studio" />
-              </div >
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-02.jpg" alt="Studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-03.jpg" alt="Studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/studio-01.jpg" alt="Studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Studio"/>
-              </div>
-            </div>
-          </div>
+          <OfferImages chosenOfferImages={images} />
           <div className="property__container container">
             <div className="property__wrapper">
               {isPremium ?
@@ -96,41 +77,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
                 <b className="property__price-value">&euro;{price}</b>
                 <span className="property__price-text">&nbsp;night</span>
               </div>
-              <div className="property__inside">
-                <h2 className="property__inside-title">What&apos;s inside</h2>
-                <ul className="property__inside-list">
-                  <li className="property__inside-item">
-                    Wi-Fi
-                  </li>
-                  <li className="property__inside-item">
-                    Washing machine
-                  </li>
-                  <li className="property__inside-item">
-                    Towels
-                  </li>
-                  <li className="property__inside-item">
-                    Heating
-                  </li>
-                  <li className="property__inside-item">
-                    Coffee machine
-                  </li>
-                  <li className="property__inside-item">
-                    Baby seat
-                  </li>
-                  <li className="property__inside-item">
-                    Kitchen
-                  </li>
-                  <li className="property__inside-item">
-                    Dishwasher
-                  </li>
-                  <li className="property__inside-item">
-                    Cabel TV
-                  </li>
-                  <li className="property__inside-item">
-                    Fridge
-                  </li>
-                </ul>
-              </div>
+              <OfferGoods goods= {goods}/>
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">

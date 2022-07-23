@@ -1,29 +1,24 @@
+import {MAX_OFFER_IMAGE_QUANTITY} from '../../const';
 
-function OfferImage(): JSX.Element {
+type OfferImagesProps= {
+  chosenOfferImages: string[] | undefined,
+}
+
+
+function OfferImages({chosenOfferImages}:OfferImagesProps): JSX.Element {
+  const reducedChosenOfferImages = chosenOfferImages?.slice(0, MAX_OFFER_IMAGE_QUANTITY);
+
+
   return (
     <div className="property__gallery-container container">
       <div className="property__gallery">
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/room.jpg" alt="studio" />
-        </div >
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/apartment-01.jpg" alt="Studio"/>
-        </div>
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/apartment-02.jpg" alt="Studio"/>
-        </div>
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/apartment-03.jpg" alt="Studio"/>
-        </div>
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/studio-01.jpg" alt="Studio"/>
-        </div>
-        <div className="property__image-wrapper">
-          <img className="property__image" src="img/apartment-01.jpg" alt="Studio"/>
-        </div>
+        {reducedChosenOfferImages?.map((image) => (
+          <div className="property__image-wrapper" key = {`${image}-${image}`}>
+            <img className="property__image" src={image} alt="studio" />
+          </div >))}
       </div>
     </div>
   );
 }
 
-export default OfferImage;
+export default OfferImages;

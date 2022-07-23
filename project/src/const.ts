@@ -1,4 +1,7 @@
-export enum AppRoute {
+const MAX_OFFER_IMAGE_QUANTITY = 9;
+const MULTIPLIER_RATING_TO_PERCENTAGE = 20;
+
+enum AppRoute {
   Main ='/',
   Login = '/login',
   Favorites = '/favorites',
@@ -6,11 +9,11 @@ export enum AppRoute {
 }
 
 
-export enum AuthorizationStatus {
+enum AuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
 
 
-export const MULTIPLIER_RATING_TO_PERCENTAGE = 20;
+export {MULTIPLIER_RATING_TO_PERCENTAGE, MAX_OFFER_IMAGE_QUANTITY, AppRoute, AuthorizationStatus};
