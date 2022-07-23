@@ -5,7 +5,6 @@ import { offers } from './mocks/offers';
 import { reviews } from './mocks/reviews';
 
 
-
 const Settings = {
   PLACE_CARDS_COUNT: 5,
 };
