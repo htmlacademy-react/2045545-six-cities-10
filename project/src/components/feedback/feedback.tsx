@@ -20,8 +20,6 @@ function Feedback({review}: FeedbackProps): JSX.Element {
     // isPro,
     name} = user;
 
-  console.log(review);
-
 
   const starWidth: number = ratingPercentage(rating);
 

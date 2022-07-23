@@ -1,11 +1,11 @@
 import Header from '../../components/header/header';
-import ReviewForm from '../../components/review-form/review-form';
+import ReviewForm from '../../components/feedback-form/feedback-form';
 import {useParams} from 'react-router-dom';
 import {Offers} from '../../types/offer';
 import {ratingPercentage, firstLetterToUpperCase} from '../../utils/utils';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import { Reviews } from '../../types/reviews';
-import Review from '../../components/review/review';
+import FeedbacksList from '../../components/feedbacks-list/feedbacks-list';
 
 type OfferScreenProps ={
   offers: Offers,
@@ -25,8 +25,6 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
   }
 
 
-  console.log(reviews);
-
   const {isPremium, images, title, rating, type, maxAdults, bedrooms, price, goods, host, description} = chosenOffer ;
   const starWidth = ratingPercentage(rating);
   const firstLetterCapitalizedType = firstLetterToUpperCase(type);
@@ -35,7 +33,6 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
   return (
     <div className="page">
       <Header />
-
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
@@ -154,10 +151,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
                 </div>
               </div>
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-                <ul className="reviews__list">
-                  <Review review ={reviews[0]}/>
-                </ul>
+                <FeedbacksList reviews ={reviews}/>
                 <ReviewForm />
               </section>
             </div>

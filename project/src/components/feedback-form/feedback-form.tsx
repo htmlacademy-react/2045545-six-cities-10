@@ -1,7 +1,7 @@
 import {ChangeEvent, useState } from 'react';
 
 
-function ReviewForm(): JSX.Element {
+function FeedbackForm(): JSX.Element {
   const [formData, setFormData] = useState({
     fiveStars: false,
     fourStars: false,
@@ -69,6 +69,6 @@ function ReviewForm(): JSX.Element {
   );
 }
 
-export default ReviewForm;
+export default FeedbackForm;
 
 
