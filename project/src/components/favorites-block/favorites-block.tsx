@@ -21,9 +21,7 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
           <li className="favorites__locations-items" key = {`${index}-${index}`}>
             <div className="favorites__locations locations locations--current">
               <div className="locations__item">
-                <a className="locations__item-link" href="/#">
-                  <span>{city}</span>
-                </a>
+                {index === 0 ? <a className="locations__item-link" href="/#"><span>{city}</span></a> : null}
               </div>
             </div>
             <div className="favorites__places">
@@ -39,21 +37,6 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
 
 }
 
-
-// (
-//     <li className="favorites__locations-items">
-//     <div className="favorites__locations locations locations--current">
-//       <div className="locations__item">
-//         <a className="locations__item-link" href="/#">
-//           {/* {<span>{offersByCity[exactCity].city.name}</span> } */}
-//         </a>
-//       </div>
-//     </div>
-//     <div className="favorites__places">
-//       {/*
-//     </div>
-//   </li>
-//   ))})
 
 export default FavoritesBlock;
 
