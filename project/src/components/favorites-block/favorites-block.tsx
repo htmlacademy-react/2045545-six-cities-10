@@ -11,6 +11,8 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
 
   const [activeCardId, setActiveCardId] = useState< number | null>(null);
 
+  console.log(offersByCity);
+
   return (
     <Fragment>
 
@@ -25,7 +27,7 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
               </div>
             </div>
             <div className="favorites__places">
-              {offersByCity.map((offer) => (<PlaceCard offer = {offer} key= {`${offer.id}`} isActive ={offer.id === activeCardId} onHover = {()=>setActiveCardId(offer.id)} isFlex/>))}
+              <PlaceCard offer = {exactOffer} key= {`${exactOffer.id}`} isActive ={exactOffer.id === activeCardId} onHover = {()=>setActiveCardId(exactOffer.id)} isFlex/>
             </div>
           </li>
 

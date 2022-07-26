@@ -1,6 +1,6 @@
 import {Offers} from '../../types/offer';
 import {groupBy} from '../../utils/utils';
-import FavoritesInCity from '../../components/favorites-in-city/favorites-in-city';
+import FavoritesBlock from '../favorites-block/favorites-block';
 
 type FavoritesProps ={
   offers: Offers,
@@ -22,7 +22,7 @@ function Favorites({offers}: FavoritesProps) : JSX.Element {
     <section className="favorites">
       <h1 className="favorites__title">Saved listing</h1>
       <ul className="favorites__list">
-        {listOfFavoriteCities.map((city) => ( < FavoritesInCity offersByCity ={offersGroupedByCity[city]} exactCity = {city} key = {city}/>))}
+        {listOfFavoriteCities.map((city) => ( < FavoritesBlock offersByCity ={offersGroupedByCity[city]} city = {city} key = {city}/>))}
       </ul>
     </section>);
 
