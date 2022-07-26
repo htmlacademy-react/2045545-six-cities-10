@@ -22,7 +22,7 @@ function Favorites({offers}: FavoritesProps) : JSX.Element {
           <div className="favorites__locations locations locations--current">
             <div className="locations__item">
               <a className="locations__item-link" href="/#">
-                <span>{offers[0].city.name}</span>
+                <span>{offers[0].city.name}</span>тз
               </a>
             </div>
           </div>

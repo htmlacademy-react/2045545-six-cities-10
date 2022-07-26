@@ -2,10 +2,11 @@ const MAX_OFFER_IMAGE_QUANTITY = 9;
 const MULTIPLIER_RATING_TO_PERCENTAGE = 20;
 
 enum AppRoute {
-  Main ='/',
+  Main = '/',
   Login = '/login',
   Favorites = '/favorites',
-  Room ='/offer/:id',
+  Room = '/offer/:id',
+  NotFound = '/not-found'
 }
 
 

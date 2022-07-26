@@ -46,8 +46,10 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
             </PrivateRoute>
           }
         />
-
-
+        <Route
+          path = {AppRoute.NotFound}
+          element = {<NotFoundScreen/>}
+        />
         <Route
           path = '*'
           element = {<NotFoundScreen/>}
