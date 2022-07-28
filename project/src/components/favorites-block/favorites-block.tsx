@@ -11,8 +11,6 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
 
   const [activeCardId, setActiveCardId] = useState< number | null>(null);
 
-  console.log(offersByCity);
-
   return (
     <Fragment>
 
