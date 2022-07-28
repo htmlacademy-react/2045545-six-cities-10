@@ -8,12 +8,13 @@ type FavoritesProps ={
 
 function Favorites({offers}: FavoritesProps) : JSX.Element {
 
-  // const [activeCardId, setActiveCardId] = useState< number | null>(null);
 
   const favoriteOffers: Offers = offers.filter((offer)=> offer.isFavorite === true);
   const offersToGroupByCity = favoriteOffers.slice();
 
+
   const offersGroupedByCity = groupBy(offersToGroupByCity, (offer) => offer.city.name);
+
 
   const listOfFavoriteCities = Object.keys(offersGroupedByCity);
 

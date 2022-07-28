@@ -16,7 +16,7 @@ function FavoritesBlock({offersByCity, city}: FavoritesBlockProps): JSX.Element 
 
       {
         offersByCity.map((exactOffer, index) => (
-          <li className="favorites__locations-items" key = {`${index}-${index}`}>
+          <li className="favorites__locations-items" key = {`${exactOffer.id}-${exactOffer.previewImage}`}>
             <div className="favorites__locations locations locations--current">
               <div className="locations__item">
                 {index === 0 ? <a className="locations__item-link" href="/#"><span>{city}</span></a> : null}

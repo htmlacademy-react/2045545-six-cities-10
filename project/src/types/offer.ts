@@ -39,11 +39,6 @@ type Offer = {
 
 type Offers = Offer[];
 
-type OffersSortedByOneCity = {
-  city: Offers[]
-}
 
-type OffersSortedByCities = OffersSortedByOneCity[]
-
-export type {Offer, Offers, OffersSortedByCities};
+export type {Offer, Offers};
 

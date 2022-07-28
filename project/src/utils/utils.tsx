@@ -27,7 +27,10 @@ function firstLetterToUpperCase ( word: string | null) : string | null{
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function groupBy<T extends Record<string, any>, K extends keyof T>(array: T[],key: K | { (obj: T): string }): Record<string, T[]> {
+function groupBy<T extends Record<string, any>, K extends keyof T>(
+  array: T[],
+  key: K | { (obj: T): string }
+): Record<string, T[]> {
   const keyFn = key instanceof Function ? key : (obj: T) => obj[key];
   return array.reduce((objectsByKeyValue, obj) => {
     const value = keyFn(obj);
