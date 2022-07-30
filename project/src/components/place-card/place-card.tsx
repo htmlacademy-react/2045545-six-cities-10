@@ -2,6 +2,7 @@ import {Offer} from '../../types/offer';
 import {NavLink} from 'react-router-dom';
 import {ratingPercentage} from '../../utils/utils';
 import {MouseEventHandler} from 'react';
+import { AppRoute } from '../../const';
 
 
 type PlaceCardProps = {
@@ -63,7 +64,7 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name" >
-          <NavLink to={`/offer/${id}`} id={`${id}`}>{title}</NavLink>
+          <NavLink to={AppRoute.Room.replace(':id',id.toString())}>{title}</NavLink>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
