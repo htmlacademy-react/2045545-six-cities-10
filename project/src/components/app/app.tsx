@@ -20,6 +20,7 @@ type AppScreenProps = {
 
 function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
 
+
   return (
     <BrowserRouter>
       <Routes>

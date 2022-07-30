@@ -1,4 +1,4 @@
-import { Offers, City } from '../../types/offer';
+import { Offers, City, Offer } from '../../types/offer';
 import {useEffect, useRef} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -8,9 +8,10 @@ import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 type MapProps = {
   city: City,
   offers: Offers,
+  selectedOffer: Offer | undefined,
 }
 
-function Map({city, offers}:MapProps) : JSX.Element {
+function Map({city, offers, selectedOffer}:MapProps) : JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -34,18 +35,20 @@ function Map({city, offers}:MapProps) : JSX.Element {
           lng: offer.location.longitude,
         },
         {
-          icon: defaultCustomIcon,
+          icon: (selectedOffer !== undefined && offer.id === selectedOffer.id)
+            ? currentCustomIcon
+            : defaultCustomIcon,
         })
           .addTo(map);
       });
 
     }
-  }, [map, offers, defaultCustomIcon]);
+  }, [map, offers, defaultCustomIcon, currentCustomIcon, selectedOffer]);
 
 
   return (
     <section className="cities__map"
-      style={{height: '500px'}}
+      style={{height: '100vh'}}
       ref = {mapRef}
     >
 
