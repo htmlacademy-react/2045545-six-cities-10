@@ -18,25 +18,22 @@ const ratingPercentage = (ratingInStars: number | undefined | null) : number =>{
   return ratingInStars * MULTIPLIER_RATING_TO_PERCENTAGE;
 };
 
-function firstLetterToUpperCase ( word: string | null) : string | null{
+const firstLetterToUpperCase = ( word: string | null) : string | null => {
   if (!word) {
     return word;
   }
   return word[0].toUpperCase() + word.slice(1);
-}
+};
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function groupBy<T extends Record<string, any>, K extends keyof T>(
-  array: T[],
-  key: K | { (obj: T): string }
-): Record<string, T[]> {
+const groupBy = <T extends Record<string, any>, K extends keyof T>(array: T[], key: K | { (obj: T): string }) => {
   const keyFn = key instanceof Function ? key : (obj: T) => obj[key];
   return array.reduce((objectsByKeyValue, obj) => {
     const value = keyFn(obj);
     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
     return objectsByKeyValue;
-  }, {} as Record<string, T[]>);
-}
+  }, {} as Record<string, T[]>);};
+
 
 export {sortByCity, ratingPercentage, firstLetterToUpperCase, groupBy};

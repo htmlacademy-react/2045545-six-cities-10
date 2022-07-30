@@ -39,6 +39,5 @@ type Offer = {
 
 type Offers = Offer[];
 
-
 export type {Offer, Offers, City, Location};
 
