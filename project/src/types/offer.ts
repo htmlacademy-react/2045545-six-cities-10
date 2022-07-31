@@ -1,3 +1,4 @@
+
 type Location = {
   latitude: number,
   longitude: number,
@@ -17,7 +18,7 @@ type Host = {
 }
 
 
-export type Offer = {
+type Offer = {
   city:City,
   previewImage: string,
   images?:string[],
@@ -36,4 +37,7 @@ export type Offer = {
   id: number
 }
 
-export type Offers = Offer[];
+type Offers = Offer[];
+
+export type {Offer, Offers, City, Location};
+

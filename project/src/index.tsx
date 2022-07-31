@@ -19,7 +19,6 @@ root.render(
       placeCardsCount={Settings.PLACE_CARDS_COUNT}
       offers ={offers}
       reviews = {reviews}
-
     />
   </React.StrictMode>,
 );

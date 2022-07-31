@@ -1,6 +1,8 @@
 import {Offer} from '../../types/offer';
 import {NavLink} from 'react-router-dom';
 import {ratingPercentage} from '../../utils/utils';
+import {MouseEventHandler} from 'react';
+import { AppRoute } from '../../const';
 
 
 type PlaceCardProps = {
@@ -8,12 +10,13 @@ type PlaceCardProps = {
   isActive: boolean,
   onHover: ()=>void,
   isFlex: boolean,
+  onMouseEnter : MouseEventHandler<HTMLHeadingElement> | undefined,
 };
 
 function PlaceCard(props: PlaceCardProps): JSX.Element {
 
 
-  const {offer, isActive, onHover, isFlex} = props;
+  const {offer, isActive, onHover, isFlex, onMouseEnter} = props;
   const {
     id,
     previewImage,
@@ -31,7 +34,7 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
 
 
   return (
-    <article className= "cities__card place-card" onMouseOver = {onHover} style = {{display : `${isFlex ? 'flex' : 'block'}`, width: `${isFlex ? '421px' : '260px'}` }} >
+    <article className= "cities__card place-card" onMouseOver = {onHover} style = {{display : `${isFlex ? 'flex' : 'block'}`, width: `${isFlex ? '421px' : '260px'}` }} id = {id.toString()} onMouseEnter ={onMouseEnter}>
       {isPremium ?
         <div className="place-card__mark">
           <span>Premium</span>
@@ -60,8 +63,8 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
-          <NavLink to={`/offer/${id}`} id={`${id}`}>{title}</NavLink>
+        <h2 className="place-card__name" >
+          <NavLink to={AppRoute.Room.replace(':id',id.toString())}>{title}</NavLink>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

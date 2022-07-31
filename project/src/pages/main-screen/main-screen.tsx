@@ -1,6 +1,10 @@
 import Header from '../../components/header/header';
 import PlaceCardsList from '../../components/place-cards-list/place-cards-list';
-import {Offers} from '../../types/offer'; //
+import {Offers, Offer} from '../../types/offer';
+import Map from '../../components/map/map';
+import { useState } from 'react';
+import {DEFAULT_CITY} from '../../const';
+
 
 type MainScreenProps = {
   // placeCardsCount: number;
@@ -8,6 +12,15 @@ type MainScreenProps = {
 }
 
 function MainScreen({offers}: MainScreenProps): JSX.Element {
+
+  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
+
+  const onListItemHover = (listItemName: string) => {
+    const currentOffer = offers.find((offer) =>
+      offer.id.toString() === listItemName,
+    );
+    setSelectedOffer(currentOffer);
+  };
 
   return (
     <div className="page page--gray page--main">
@@ -71,10 +84,10 @@ function MainScreen({offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <PlaceCardsList offers = {offers}/>
+              <PlaceCardsList offers = {offers} onListItemHover = {onListItemHover}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">< Map city ={DEFAULT_CITY} offers={offers} selectedOffer ={selectedOffer}/></section>
             </div>
           </div>
         </div>

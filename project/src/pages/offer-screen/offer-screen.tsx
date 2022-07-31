@@ -1,13 +1,13 @@
 import Header from '../../components/header/header';
 import ReviewForm from '../../components/feedback-form/feedback-form';
-import {useParams} from 'react-router-dom';
+import {Navigate, useParams} from 'react-router-dom';
 import {Offers} from '../../types/offer';
 import {ratingPercentage, firstLetterToUpperCase} from '../../utils/utils';
-import NotFoundScreen from '../not-found-screen/not-found-screen';
 import { Reviews } from '../../types/reviews';
 import FeedbacksList from '../../components/feedbacks-list/feedbacks-list';
 import OfferImages from '../../components/offer-images/offer-images';
 import OfferGoods from '../../components/offer-goods/offer-goods';
+import { AppRoute } from '../../const';
 
 type OfferScreenProps ={
   offers: Offers,
@@ -23,7 +23,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
   const chosenOffer = offers.find((offer)=> offer.id.toString() === id);
 
   if (chosenOffer === undefined) {
-    return <NotFoundScreen />;
+    return <Navigate to={AppRoute.NotFound} />;
   }
 
 
@@ -88,7 +88,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
                     {host?.name}
                   </span>
                   <span className="property__user-status">
-                    {host?.isPro}
+                    {host.isPro ? 'Pro' : ''}
                   </span>
                 </div>
                 <div className="property__description">
@@ -110,8 +110,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               {/* <PlaceCard/>
-              <PlaceCard/>
-              <PlaceCard/> */}
+             */}
             </div>
           </section>
         </div>

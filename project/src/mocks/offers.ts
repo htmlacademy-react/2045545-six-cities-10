@@ -3,10 +3,10 @@ import {Offers} from '../types/offer';
 export const offers: Offers = [
   {
     city:{
-      name:'Paris',
+      name:'Amsterdam',
       location: {
-        latitude: 51.225402,
-        longitude: 6.776314,
+        latitude: 52.373057,
+        longitude: 4.892557,
         zoom:13
       }
     },
@@ -49,19 +49,18 @@ export const offers: Offers = [
     },
     description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location:{
-      latitude: 51.210402,
-      longitude: 6.798314,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom:16
     },
     id:1
   },
   {
     city:{
-      name:'Paris',
+      name:'Amsterdam',
       location:{
-        latitude:
-        48.85661,
-        longitude:2.351499,
+        latitude: 52.373057,
+        longitude: 4.892557,
         zoom:13
       }
     },
@@ -102,18 +101,18 @@ export const offers: Offers = [
     },
     description:'Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.',
     location:{
-      latitude:48.843610000000005,
-      longitude:2.338499,
+      latitude:52.369553943508,
+      longitude:4.85309666406198,
       zoom:16
     },
     id:2
   },
   {
     city:{
-      name:'Hamburg',
+      name:'Amsterdam',
       location:{
-        latitude:53.550341,
-        longitude:10.000654,
+        latitude: 52.373057,
+        longitude: 4.892557,
         zoom:13
       }
     },
@@ -135,7 +134,7 @@ export const offers: Offers = [
       'https://10.react.pages.academy/static/hotel/3.jpg'
     ],
     title:'Nice, cozy, warm big bed apartment',
-    isFavorite:false,
+    isFavorite:true,
     isPremium:false,
     rating:3,
     type:'house',
@@ -160,17 +159,17 @@ export const offers: Offers = [
     },
     description:'Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.',
     location:{
-      latitude:53.534341000000005,
-      longitude:9.998654,
+      latitude:52.3909553943508,
+      longitude: 4.929309666406198,
       zoom:16
     },
     id:3
   },{
     city:{
-      name:'Cologne',
+      name:'Amsterdam',
       location:{
-        latitude:50.938361,
-        longitude:6.959974,
+        latitude: 52.373057,
+        longitude: 4.892557,
         zoom:13
       }
     },
@@ -218,11 +217,128 @@ export const offers: Offers = [
     },
     description:'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location:{
+      latitude:52.3809553943508,
+      longitude:4.939309666406198,
+      zoom:16
+    },
+    id:4
+  },
+  {
+    city:{
+      name:'Hamburg',
+      location:{
+        latitude:53.550688,
+        longitude: 9.992895,
+        zoom:13
+      }
+    },
+    previewImage:'https://10.react.pages.academy/static/hotel/4.jpg',
+    images:[
+      'https://10.react.pages.academy/static/hotel/17.jpg',
+      'https://10.react.pages.academy/static/hotel/9.jpg',
+      'https://10.react.pages.academy/static/hotel/10.jpg',
+      'https://10.react.pages.academy/static/hotel/14.jpg',
+      'https://10.react.pages.academy/static/hotel/6.jpg',
+      'https://10.react.pages.academy/static/hotel/5.jpg',
+      'https://10.react.pages.academy/static/hotel/13.jpg',
+      'https://10.react.pages.academy/static/hotel/3.jpg',
+      'https://10.react.pages.academy/static/hotel/15.jpg',
+      'https://10.react.pages.academy/static/hotel/16.jpg',
+      'https://10.react.pages.academy/static/hotel/19.jpg',
+      'https://10.react.pages.academy/static/hotel/1.jpg',
+      'https://10.react.pages.academy/static/hotel/11.jpg',
+      'https://10.react.pages.academy/static/hotel/7.jpg'
+    ],
+    title:'Loft 222 Studio in the Central Area',
+    isFavorite:true,
+    isPremium:true,
+    rating:4.5,
+    type:'house',
+    bedrooms:3,
+    maxAdults:8,
+    price:853,
+    goods:[
+      'Dishwasher',
+      'Air conditioning',
+      'Breakfast',
+      'Baby seat',
+      'Fridge',
+      'Washer',
+      'Towels',
+      'Coffee machine',
+      'Laptop friendly workspace'
+    ],
+    host:{
+      id:5,
+      name:'Pavel',
+      isPro:true,
+      avatarUrl:'img/avatar-angelina.jpg'
+    },
+    description:'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
+    location:{
       latitude:50.934361,
       longitude:6.943974,
       zoom:16
     },
-    id:4
+    id:5
+  },
+  {
+    city:{
+      name:'Hamburg',
+      location:{
+        latitude:53.550688,
+        longitude: 9.992895,
+        zoom:13
+      }
+    },
+    previewImage:'https://10.react.pages.academy/static/hotel/6.jpg',
+    images:[
+      'https://10.react.pages.academy/static/hotel/14.jpg',
+      'https://10.react.pages.academy/static/hotel/11.jpg',
+      'https://10.react.pages.academy/static/hotel/5.jpg',
+      'https://10.react.pages.academy/static/hotel/9.jpg',
+      'https://10.react.pages.academy/static/hotel/2.jpg',
+      'https://10.react.pages.academy/static/hotel/13.jpg',
+      'https://10.react.pages.academy/static/hotel/6.jpg',
+      'https://10.react.pages.academy/static/hotel/15.jpg',
+      'https://10.react.pages.academy/static/hotel/12.jpg',
+      'https://10.react.pages.academy/static/hotel/7.jpg',
+      'https://10.react.pages.academy/static/hotel/4.jpg',
+      'https://10.react.pages.academy/static/hotel/17.jpg',
+      'https://10.react.pages.academy/static/hotel/19.jpg',
+      'https://10.react.pages.academy/static/hotel/3.jpg'
+    ],
+    title:'Nicffffe, cozy, warm big bed apartment',
+    isFavorite:true,
+    isPremium:false,
+    rating:3,
+    type:'house',
+    bedrooms:4,
+    maxAdults:8,
+    price:198,
+    goods:[
+      'Air conditioning',
+      'Baby seat',
+      'Fridge',
+      'Breakfast',
+      'Towels',
+      'Dishwasher',
+      'Laptop friendly workspace',
+      'Washer'
+    ],
+    host:{
+      id:2,
+      name:'Anna',
+      isPro:true,
+      avatarUrl:'img/avatar-angelina.jpg'
+    },
+    description:'Discfgstewover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.',
+    location:{
+      latitude:53.534341000000005,
+      longitude:9.998654,
+      zoom:16
+    },
+    id:6
   }
 ];
 
