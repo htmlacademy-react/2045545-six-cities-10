@@ -5,11 +5,12 @@ import { useState, MouseEvent } from 'react';
 
 type PlaceCardsListProps = {
   offers: Offers;
-  onListItemHover: (listItemName: string) => void;
+  onListItemHover: (listItemName: string) => void ;
+  itemsQuantity: number;
 };
 
 
-function PlaceCardsList({offers, onListItemHover}: PlaceCardsListProps): JSX.Element {
+function PlaceCardsList({offers, onListItemHover, itemsQuantity}: PlaceCardsListProps): JSX.Element {
 
   const listItemHoverHandler = (evt: MouseEvent<HTMLElement>) => {
     evt.preventDefault();
@@ -18,9 +19,11 @@ function PlaceCardsList({offers, onListItemHover}: PlaceCardsListProps): JSX.Ele
 
   const [activeCardId, setActiveCardId] = useState< number | null>(null);
 
+  const offersCopy = offers.slice(0, itemsQuantity);
+
   return (
     <div className="cities__places-list places__list tabs__content" >
-      {offers.map((offer) => (<PlaceCard offer = {offer} key= {`${offer.id}`} isActive = {offer.id === activeCardId} onHover = {()=>setActiveCardId(offer.id)} isFlex ={false} onMouseEnter = {listItemHoverHandler}/> )//
+      {offersCopy.map((offer) => (<PlaceCard offer = {offer} key= {`${offer.id}`} isActive = {offer.id === activeCardId} onHover = {()=>setActiveCardId(offer.id)} isFlex ={false} onMouseEnter = {listItemHoverHandler}/> )//
       )}
 
     </div>

@@ -85,7 +85,7 @@ function MainScreen({offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <PlaceCardsList offers = {offers} onListItemHover = {onListItemHover}/>
+              <PlaceCardsList offers = {offers} onListItemHover = {onListItemHover} itemsQuantity = {offers.length}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">< Map city ={DEFAULT_CITY} offers={offers} selectedOffer ={selectedOffer} width={DEFAULT_MAP_WIDTH}/></section>

@@ -49,7 +49,7 @@ function Map({city, offers, selectedOffer, width}:MapProps) : JSX.Element {
 
   return (
     <section className="cities__map"
-      style={{height: '100%', margin: '0 auto', width: `${width}%`}}
+      style={{height: '100%', margin: '0 auto', width: `${width}%`, maxWidth:'1144px'}}
       ref = {mapRef}
     >
 
