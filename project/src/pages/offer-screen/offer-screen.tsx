@@ -7,7 +7,8 @@ import { Reviews } from '../../types/reviews';
 import FeedbacksList from '../../components/feedbacks-list/feedbacks-list';
 import OfferImages from '../../components/offer-images/offer-images';
 import OfferGoods from '../../components/offer-goods/offer-goods';
-import { AppRoute } from '../../const';
+import { AppRoute, DEFAULT_CITY, MAP_WIDTH_IN_OFFER } from '../../const';
+import Map from '../../components/map/map';
 
 type OfferScreenProps ={
   offers: Offers,
@@ -30,6 +31,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
   const {isPremium, images, title, rating, type, maxAdults, bedrooms, price, goods, host, description} = chosenOffer ;
   const starWidth = ratingPercentage(rating);
   const firstLetterCapitalizedType = firstLetterToUpperCase(type);
+  const mapWidth = MAP_WIDTH_IN_OFFER;
 
 
   return (
@@ -103,7 +105,9 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
               </section>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Map city={chosenOffer.city} offers ={offers} selectedOffer ={chosenOffer} width = {mapWidth}/>
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
