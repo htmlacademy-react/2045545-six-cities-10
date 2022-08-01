@@ -229,7 +229,7 @@ export const offers: Offers = [
       location:{
         latitude:53.550688,
         longitude: 9.992895,
-        zoom:13
+        zoom:11
       }
     },
     previewImage:'https://10.react.pages.academy/static/hotel/4.jpg',
@@ -276,9 +276,9 @@ export const offers: Offers = [
     },
     description:'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location:{
-      latitude:50.934361,
-      longitude:6.943974,
-      zoom:16
+      latitude:53.611267,
+      longitude:10.016713,
+      zoom:12
     },
     id:5
   },

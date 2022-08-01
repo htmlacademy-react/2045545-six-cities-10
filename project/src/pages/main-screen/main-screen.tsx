@@ -2,25 +2,27 @@ import Header from '../../components/header/header';
 import PlaceCardsList from '../../components/place-cards-list/place-cards-list';
 import {Offers, Offer} from '../../types/offer';
 import Map from '../../components/map/map';
-import { useState } from 'react';
-import {DEFAULT_CITY} from '../../const';
+import {DEFAULT_CITY, DEFAULT_MAP_WIDTH} from '../../const';
 
 
 type MainScreenProps = {
-  // placeCardsCount: number;
-  offers: Offers;
+
+  offers: Offers,
+  onListItemHover: (listItemName: string) => void,
+  selectedOffer: Offer | undefined,
 }
 
-function MainScreen({offers}: MainScreenProps): JSX.Element {
+function MainScreen({offers, onListItemHover, selectedOffer}: MainScreenProps): JSX.Element {
 
-  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
+  // const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
 
-  const onListItemHover = (listItemName: string) => {
-    const currentOffer = offers.find((offer) =>
-      offer.id.toString() === listItemName,
-    );
-    setSelectedOffer(currentOffer);
-  };
+
+  // const onListItemHover = (listItemName: string) => {
+  //   const currentOffer = offers.find((offer) =>
+  //     offer.id.toString() === listItemName,
+  //   );
+  //   setSelectedOffer(currentOffer);
+  // };
 
   return (
     <div className="page page--gray page--main">
@@ -84,10 +86,10 @@ function MainScreen({offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <PlaceCardsList offers = {offers} onListItemHover = {onListItemHover}/>
+              <PlaceCardsList offers = {offers} onListItemHover = {onListItemHover} itemsQuantity = {offers.length}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map">< Map city ={DEFAULT_CITY} offers={offers} selectedOffer ={selectedOffer}/></section>
+              <section className="cities__map map">< Map city ={DEFAULT_CITY} offers={offers} selectedOffer ={selectedOffer} width={DEFAULT_MAP_WIDTH}/></section>
             </div>
           </div>
         </div>
