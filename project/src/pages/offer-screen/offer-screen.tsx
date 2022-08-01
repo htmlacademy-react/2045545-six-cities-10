@@ -44,9 +44,6 @@ function OfferScreen({offers, reviews, onListItemHover, selectedOffer}: OfferScr
   const firstLetterCapitalizedType = firstLetterToUpperCase(type);
   const mapWidth = MAP_WIDTH_IN_OFFER;
 
-  // console.log(selectedOffer);
-  console.log(chosenOffer);
-
 
   return (
     <div className="page">
