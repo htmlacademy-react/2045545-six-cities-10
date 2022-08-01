@@ -2,26 +2,27 @@ import Header from '../../components/header/header';
 import PlaceCardsList from '../../components/place-cards-list/place-cards-list';
 import {Offers, Offer} from '../../types/offer';
 import Map from '../../components/map/map';
-import { useState } from 'react';
 import {DEFAULT_CITY, DEFAULT_MAP_WIDTH} from '../../const';
 
 
 type MainScreenProps = {
-  // placeCardsCount: number;
-  offers: Offers;
+
+  offers: Offers,
+  onListItemHover: (listItemName: string) => void,
+  selectedOffer: Offer | undefined,
 }
 
-function MainScreen({offers}: MainScreenProps): JSX.Element {
+function MainScreen({offers, onListItemHover, selectedOffer}: MainScreenProps): JSX.Element {
 
-  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
+  // const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
 
 
-  const onListItemHover = (listItemName: string) => {
-    const currentOffer = offers.find((offer) =>
-      offer.id.toString() === listItemName,
-    );
-    setSelectedOffer(currentOffer);
-  };
+  // const onListItemHover = (listItemName: string) => {
+  //   const currentOffer = offers.find((offer) =>
+  //     offer.id.toString() === listItemName,
+  //   );
+  //   setSelectedOffer(currentOffer);
+  // };
 
   return (
     <div className="page page--gray page--main">

@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      placeCardsCount={Settings.PLACE_CARDS_COUNT}
+      // placeCardsCount={Settings.PLACE_CARDS_COUNT}
       offers ={offers}
       reviews = {reviews}
     />

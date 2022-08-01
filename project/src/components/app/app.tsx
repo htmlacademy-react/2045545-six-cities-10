@@ -6,27 +6,36 @@ import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import OfferScreen from '../../pages/offer-screen/offer-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
-import {Offers} from '../../types/offer';
+import {Offers, Offer} from '../../types/offer';
 import {Reviews} from '../../types/reviews';
+import { useState } from 'react';
 
 
 type AppScreenProps = {
-  placeCardsCount: number;
   offers: Offers;
   reviews: Reviews;
 
 }
 
+function App({offers, reviews}: AppScreenProps): JSX.Element {
 
-function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
 
+  const onListItemHover = (listItemName: string) => {
+
+    const currentOffer = offers.find((offer) =>
+      offer.id.toString() === listItemName,
+    );
+    setSelectedOffer(currentOffer);
+  };
+
+  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path = {AppRoute.Main}
-          element = {<MainScreen offers={offers}/>}
+          element = {<MainScreen offers={offers} onListItemHover= {onListItemHover} selectedOffer={selectedOffer}/>}
         >
         </Route>
         <Route
@@ -43,7 +52,7 @@ function App({placeCardsCount, offers, reviews}: AppScreenProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.Auth}
             >
-              <OfferScreen offers ={offers} reviews= {reviews}/>
+              <OfferScreen offers ={offers} reviews= {reviews} onListItemHover= {onListItemHover} selectedOffer={selectedOffer}/>
             </PrivateRoute>
           }
         />

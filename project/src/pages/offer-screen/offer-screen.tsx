@@ -10,28 +10,30 @@ import OfferGoods from '../../components/offer-goods/offer-goods';
 import { AppRoute, MAP_WIDTH_IN_OFFER, NEAR_ITEMS_QUANTITY } from '../../const';
 import Map from '../../components/map/map';
 import PlaceCardsList from '../../components/place-cards-list/place-cards-list';
-import { useState } from 'react';
+
 
 type OfferScreenProps ={
   offers: Offers,
-  reviews: Reviews,
+  reviews: Reviews;
+  onListItemHover: (listItemName: string) => void,
+  selectedOffer: Offer | undefined,
 }
 
 
-function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
+function OfferScreen({offers, reviews, onListItemHover, selectedOffer}: OfferScreenProps): JSX.Element {
 
 
-  const onListItemHover = (listItemName: string) => {
-    const currentOffer = offers.find((offer) =>
-      offer.id.toString() === listItemName,
-    );
-    setSelectedOffer(currentOffer);
-  };
+  // const onListItemHover = (listItemName: string) => {
+  //   const currentOffer = offers.find((offer) =>
+  //     offer.id.toString() === listItemName,
+  //   );
+  //   setSelectedOffer(currentOffer);
+  // };
 
   const {id} = useParams();
 
   const chosenOffer = offers.find((offer)=> offer.id.toString() === id);
-  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(chosenOffer);
+  // const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(chosenOffer);
   if (chosenOffer === undefined) {
     return <Navigate to={AppRoute.NotFound} />;
   }
@@ -41,6 +43,9 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
   const starWidth = ratingPercentage(rating);
   const firstLetterCapitalizedType = firstLetterToUpperCase(type);
   const mapWidth = MAP_WIDTH_IN_OFFER;
+
+  // console.log(selectedOffer);
+  console.log(chosenOffer);
 
 
   return (
@@ -115,7 +120,7 @@ function OfferScreen({offers, reviews}: OfferScreenProps): JSX.Element {
             </div>
           </div>
           <section className="property__map map">
-            <Map city={chosenOffer.city} offers ={offers} selectedOffer ={selectedOffer} width = {mapWidth}/>
+            <Map city={chosenOffer.city} offers ={offers} selectedOffer ={selectedOffer === undefined ? chosenOffer : selectedOffer} width = {mapWidth}/>
           </section>
         </section>
         <div className="container">
